@@ -1,5 +1,5 @@
 from typing import Optional, List, Dict
-from src.config import get_supabase
+from config import get_supabase
 
 class ProductDAO:
     def __init__(self):
