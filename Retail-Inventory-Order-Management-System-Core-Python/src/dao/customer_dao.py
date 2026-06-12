@@ -1,7 +1,7 @@
 # src/dao/customer_dao.py
 from typing import Optional, List, Dict
 from datetime import datetime
-from src.config import get_supabase
+from config import get_supabase
 
 class CustomerDAO:
     def __init__(self):
