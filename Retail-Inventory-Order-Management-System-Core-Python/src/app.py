@@ -1,6 +1,13 @@
 import streamlit as st
 import pandas as pd
+import sys
+import os
 
+sys.path.append(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
+)
 from src.services.product_service import ProductService
 from src.services.customer_service import CustomerService
 from src.services.order_service import OrderService
