@@ -1,6 +1,6 @@
 # src/services/order_service.py
 
-from src.dao.order_dao import OrderDAO
+from dao.order_dao import OrderDAO
 
 
 class OrderError(Exception):
