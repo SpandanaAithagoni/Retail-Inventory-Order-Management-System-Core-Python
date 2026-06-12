@@ -8,9 +8,9 @@ sys.path.append(
         os.path.abspath(__file__)
     )
 )
-from src.services.product_service import ProductService
-from src.services.customer_service import CustomerService
-from src.services.order_service import OrderService
+from services.product_service import ProductService
+from services.customer_service import CustomerService
+from services.order_service import OrderService
 
 st.set_page_config(
     page_title="Retail Inventory Management",
