@@ -1,6 +1,6 @@
 # src/services/customer_service.py
 
-from src.dao.customer_dao import CustomerDAO
+from dao.customer_dao import CustomerDAO
 
 
 class CustomerError(Exception):
