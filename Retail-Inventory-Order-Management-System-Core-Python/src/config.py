@@ -1,21 +1,43 @@
+# src/config.py
+
 import os
+
 from dotenv import load_dotenv
-from supabase import create_client, Client
+from supabase import create_client
 
-load_dotenv() 
+load_dotenv()
 
-class SupabaseConfig:
-    def __init__(self):
-        self.url = os.getenv("SUPABASE_URL")
-        self.key = os.getenv("SUPABASE_KEY")
+_supabase_client = None
 
-        if not self.url or not self.key:
-            raise RuntimeError(
-                "SUPABASE_URL and SUPABASE_KEY must be set in environment (.env)"
-            )
 
-    def get_client(self) -> Client:
-        return create_client(self.url, self.key)
+def get_supabase():
 
-def get_supabase() -> Client:
-    return SupabaseConfig().get_client()
+    global _supabase_client
+
+    if _supabase_client is not None:
+        return _supabase_client
+
+    supabase_url = os.getenv(
+        "SUPABASE_URL"
+    )
+
+    supabase_key = os.getenv(
+        "SUPABASE_KEY"
+    )
+
+    if not supabase_url:
+        raise RuntimeError(
+            "SUPABASE_URL is missing"
+        )
+
+    if not supabase_key:
+        raise RuntimeError(
+            "SUPABASE_KEY is missing"
+        )
+
+    _supabase_client = create_client(
+        supabase_url,
+        supabase_key
+    )
+
+    return _supabase_client
