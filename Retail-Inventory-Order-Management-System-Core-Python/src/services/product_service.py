@@ -2,7 +2,7 @@
 
 from typing import List, Dict
 
-from src.dao.product_dao import ProductDAO
+from dao.product_dao import ProductDAO
 
 
 class ProductError(Exception):
